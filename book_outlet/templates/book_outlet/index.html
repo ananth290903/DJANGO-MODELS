@@ -5,9 +5,18 @@
 {% endblock %}
 
 {% block content %}
+    <h1>CATALOGUE</h1>
     <ul>
        {% for book in books %}
-        <li>{{book.title}}(Rating:{{book.rating}})</li>
+        <li>
+          <a href="{{book.get_absolute_url}}"> {{book.title}}</a>(Rating:{{book.rating}})
+        </li>
        {% endfor %}
     </ul>
 {% endblock %}
+
+{% comment %}
+
+<a href="{% url "book-detail" book.id%}"> {{book.title}}</a>(Rating:{{book.rating}})
+
+{% endcomment %}
